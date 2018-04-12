@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
 
     Animator anim;
+    GameObject menuPanel;
 
     // Use this for initialization
     void Start()
     {
+        menuPanel = GameObject.Find("MenuPanel").GetComponent<GameObject>();
         anim = GetComponent<Animator>();
     }
 
