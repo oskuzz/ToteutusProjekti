@@ -18,13 +18,13 @@ public class Functionality : MonoBehaviour
     public Text timerText;
     public Text massilaatikko;
 
-    float btn;
+    Buttons btn;
     // Use this for initialization
     void Start()
     {
         timerText = GameObject.Find("TimerTest").GetComponent<Text>();
         massilaatikko = GameObject.Find("Massit").GetComponent<Text>();
-        btn = GameObject.Find("Buttons").GetComponent<Buttons>().lahna;
+        btn = GetComponent<Buttons>();
         
     }
 
@@ -37,15 +37,15 @@ public class Functionality : MonoBehaviour
 
     public void UpdateTimerUI()
     {
-        btn = Time.deltaTime * 1000;
-        /*btn.sushi = Time.deltaTime * 1000;
+        btn.lahna = Time.deltaTime * 1000;
+        btn.sushi = Time.deltaTime * 1000;
         btn.muikku = Time.deltaTime * 1000;
         btn.rae = Time.deltaTime * 1000;
         btn.rape = Time.deltaTime * 1000;
         btn.peruna = Time.deltaTime * 1000;
         btn.nauta = Time.deltaTime * 1000;
         btn.kana = Time.deltaTime * 1000;
-    */}
+    }
 
     public bool Kassa(float hinta)
     {
