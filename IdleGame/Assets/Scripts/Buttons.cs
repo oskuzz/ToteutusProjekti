@@ -8,23 +8,23 @@ public class Buttons : MonoBehaviour
 
     Animator anim;
     GameObject menuPanel;
-    Functionality Func;
-    public float lahna = 0, sushi = 0, muikku = 0, peruna = 0, rae = 0, nauta = 0, rape = 0, kana = 0;
 
+    public Text timerText;
     // Use this for initialization
     void Start()
     {
         menuPanel = GameObject.Find("MenuPanel").GetComponent<GameObject>();
-        Func = GetComponent<Functionality>();
         anim = GetComponent<Animator>();
+        timerText = GameObject.Find("TimerTest").GetComponent<Text>();
+
     }
 
     public void onLahnaPress()
     {
-        if (Func.aikaLahna >= lahna)
+        if (Functionality.aikaLahna <= Functionality.lahna)
         {
             anim.SetTrigger("RomiEats");
-            lahna = 0;
+            Functionality.lahna = 0;
         }
     }
     public void onSushiPress()
