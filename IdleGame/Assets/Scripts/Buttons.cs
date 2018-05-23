@@ -30,6 +30,7 @@ public class Buttons : MonoBehaviour
     public void onSushiPress()
     {
         anim.SetTrigger("RomiEats");
+        anim.SetTrigger("EatSushi");
     }
     public void onMuikkuPress()
     {

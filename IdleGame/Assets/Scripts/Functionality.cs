@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Functionality : MonoBehaviour
 {
 
+    Animator anime;
+
     public float kassa = 10000;
 
     public float hintaLahna = 4, hintaSushi = 10, hintaMuikku = 50, hintaPeruna = 200, hintaRae = 1000, hintaNauta = 10000, hintaRape = 500000, hintaKana = 2000000;
