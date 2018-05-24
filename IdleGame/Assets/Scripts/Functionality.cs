@@ -8,9 +8,9 @@ public class Functionality : MonoBehaviour
 
     Animator anime;
 
-    public float kassa = 10000;
+    public static float kassa = 1000;
 
-    public float hintaLahna = 4, hintaSushi = 10, hintaMuikku = 50, hintaPeruna = 200, hintaRae = 1000, hintaNauta = 10000, hintaRape = 500000, hintaKana = 2000000;
+    public static float hintaLahna = 4, hintaSushi = 10, hintaMuikku = 50, hintaPeruna = 200, hintaRae = 1001, hintaNauta = 10000, hintaRape = 500000, hintaKana = 2000000;
     public static float aikaLahna = 200, aikaSushi = 8, aikaMuikku = 24, aikaPeruna = 60, aikaRae = 150, aikaNauta = 300, aikaRape = 480, aikaKana = 660;
     public int Lahna, Sushi, Muikku, Peruna, Rae, Nauta, Rape, Kana;
     public static double lahna = 0, sushi = 0, muikku = 0, peruna = 0, rae = 0, nauta = 0, rape = 0, kana = 0;
@@ -37,7 +37,10 @@ public class Functionality : MonoBehaviour
 
     public void UpdateTimerUI()
     {
-        lahna += Time.deltaTime * 1000;
+        if (lahna < aikaLahna)
+        {
+            lahna += Time.deltaTime * 100;
+        }
         /*sushi = Time.deltaTime * 1000;
         muikku = Time.deltaTime * 1000;
         rae = Time.deltaTime * 1000;
@@ -51,7 +54,9 @@ public class Functionality : MonoBehaviour
 
     public bool Kassa(float hinta)
     {
-        if(kassa >= kassa-hinta)
+        float jaljella = kassa - hinta;
+
+        if (jaljella >= 0)
         {
             kassa -= hinta;
             return true;
@@ -68,11 +73,18 @@ public class Functionality : MonoBehaviour
         switch (id)
         {
             case 1:
-                if (Kassa(hintaLahna))
+                if (lahna >= aikaLahna)
                 {
-                    hintaLahna *= hintaMult;
-                    aikaLahna *= aikaMult;
-                    Lahna++;
+                    if (Kassa(hintaLahna))
+                    {
+                        hintaLahna *= hintaMult;
+                        if (kpl(Lahna))
+                        {
+                            aikaLahna *= aikaMult;
+                        }
+                        lahna = 0;
+                        Lahna++;
+                    }
                 }
                 break;
             case 2:
@@ -131,6 +143,67 @@ public class Functionality : MonoBehaviour
                     Kana++;
                 }
                 break;
+        }
+    }
+
+    public void onLahnaPress()
+    {
+        anime.SetTrigger("");
+    }
+    public void onSushiPress()
+    {
+        anime.SetTrigger("");
+
+    }
+    public void onMuikkuPress()
+    {
+        anime.SetTrigger("");
+
+    }
+    public void onPerunaPress()
+    {
+        anime.SetTrigger("");
+
+    }
+    public void onRaePress()
+    {
+        anime.SetTrigger("");
+
+    }
+    public void onNautaPress()
+    {
+        anime.SetTrigger("");
+
+    }
+    public void onRapePress()
+    {
+        anime.SetTrigger("");
+
+    }
+    public void onKanaPress()
+    {
+        anime.SetTrigger("");
+
+    }
+
+    public bool kpl (int kpl)
+    {
+        switch (kpl)
+        {
+            case 10:
+                return true;
+            case 100:
+                return true;
+            case 1000:
+                return true;
+            case 10000:
+                return true;
+            case 100000:
+                return true;
+            case 1000000:
+                return true;
+            default:
+                return false;
         }
     }
 }
