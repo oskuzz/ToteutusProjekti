@@ -158,7 +158,6 @@ public class Functionality : MonoBehaviour
     public void onMuikkuPress()
     {
         anime.SetTrigger("");
-
     }
     public void onPerunaPress()
     {
@@ -186,7 +185,7 @@ public class Functionality : MonoBehaviour
 
     }
 
-    public bool kpl (int kpl)
+    public bool kpl(int kpl)
     {
         switch (kpl)
         {
